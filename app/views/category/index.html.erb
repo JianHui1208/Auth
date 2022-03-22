@@ -1,0 +1,30 @@
+<div class="container">   
+    <h3>STOCK LIST</h3>   
+     
+      <div>   
+        <%= link_to 'Add Product', new_product_path %>   
+      </div>   
+      <br>   
+    <table border="2">   
+      <thead>   
+      <tr>   
+        <th>Name</th>   
+        <th>Actions</th>   
+      </tr>   
+      </thead>   
+      <tbody>   
+      <% @categories.each do |category| %>   
+          <tr>   
+            <td><%= category.name %></td>     
+               <div>   
+               <td>   
+                <%= link_to 'Show', category_path(category) %>   
+                <%= link_to 'Edit', edit_category_path(category) %>   
+                <%= link_to 'Delete', category_path(category), method: :delete %>   
+              </div>   
+            </td>   
+          </tr>   
+      <% end %>   
+      </tbody>   
+    </table>   
+</div>   

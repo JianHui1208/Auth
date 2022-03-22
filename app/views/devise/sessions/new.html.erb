@@ -1,0 +1,52 @@
+<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
+    <div class="c-app flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card mx-4">
+                        <div class="card-body p-4">
+                          <h1>System</h1>
+                          <p class="text-muted">Login</p>
+                          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                          <i class="fa fa-user"></i>
+                                      </span>
+                                  </div>
+
+                                  <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: "form-control" %>
+                              </div>
+
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              </div>
+
+                              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password"%>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                  <div class="actions">
+                                    <%= f.submit "Log in", class: "btn btn-primary px-4", data: { turbo: false }  %>
+                                  </div>
+                                </div>
+
+                                <div class="col-6 text-right">
+                                  <% if devise_mapping.rememberable? %>
+                                    <div class="field">
+                                      <%= f.check_box :remember_me, class: "form-check-input" %>
+                                      <%= f.label :remember_me, class: "form-check-label" %>
+                                    </div>
+                                  <% end %>
+                                </div>
+                            </div>
+                          <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
